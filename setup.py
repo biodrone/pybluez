@@ -63,11 +63,11 @@ elif sys.platform.startswith("darwin"):
     packages.append('lightblue')
     package_dir['lightblue'] = 'macos'
     zip_safe = False
-
+    
     if sys.version_info >= (3,6):
-        install_requires += ['pyobjc-core>=6', 'pyobjc-framework-Cocoa>=6']
+        install_requires += ['pyobjc-core>=6; sys_platform="darwin"', 'pyobjc-framework-Cocoa>=6; sys_platform="darwin"']
     else:
-        install_requires += ['pyobjc-core>=3.1,<6', 'pyobjc-framework-Cocoa>=3.1,<6']
+        install_requires += ['pyobjc-core>=3.1,<6; sys_platform="darwin"', 'pyobjc-framework-Cocoa>=3.1,<6; sys_platform="darwin"']
 
     # FIXME: This is inelegant, how can we cover the cases?
     build_cmds = {'bdist', 'bdist_egg', 'bdist_wheel'}
